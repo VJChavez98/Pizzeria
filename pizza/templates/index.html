@@ -1,0 +1,47 @@
+
+{% load static %}
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'pi/style.css' %}">
+
+<head>
+<title>
+		{% block title %}Pizzeria{% endblock %}
+</title>
+</head>
+{% block body %}
+	<div class="container">
+		<div class="navbar navbar-dark bg-dark">
+			<div class="container">
+				<div class="navbar-header">HEADER OF NAVBAR
+
+						{% if user.is_authenticated %}
+    					<a href="{% url 'pi:logout' %}">logout</a>
+						{% else %}
+  						<a href="{% url 'pi:login' %}">login</a>
+						{% endif %}
+
+				</div>
+			</div>
+		</div>
+	</div>
+	{% if pizza_list %}
+	<ul>
+		{% for pizza in pizza_list %}
+		<li>
+			<a href="{% url 'pi:pizzas' pizza.pizza_id %}">{{ pizza.nom_pizza }}	{{ pizza.pizza_id}}		</a>
+		</li>
+		{% endfor %}
+	</ul>
+	{% else %}
+		<p>No pizza disponible we:(</p>
+	{% endif %}
+	
+	{% block content %}
+		<h2>
+			Contenido
+		</h2>
+	{% endblock %}
+{% endblock %}
+</body>
+
