@@ -10,9 +10,9 @@ app_name='pi'
 urlpatterns = [
     path('', views.indexView.as_view(), name='index'),
     #
-    path('accounts/', include('django.contrib.auth.urls')),
     path('<int:pk>', views.pizzasView.as_view(), name='pizzas'),
-    #path('', include('django.contrib.auth.urls'), name='login'),
+    path('accounts/', include('django.contrib.auth.urls'), name='login'),
+
 
 
 

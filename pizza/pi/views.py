@@ -14,6 +14,10 @@ class indexView(generic.ListView):
     def get_queryset(self):
         return Pizza.objects.all()
 
+    def logout_request(request):
+        logout(request)
+        messages.info(request, "Logged out successfully!")
+        return redirect("main:homepage")
 
     def login(self):
         template_name='login.html'

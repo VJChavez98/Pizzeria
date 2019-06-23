@@ -2,7 +2,7 @@
 {% load static %}
 
 
-<link rel="stylesheet" type="text/css" href="{% static 'pi/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 
 <head>
 <title>
@@ -10,10 +10,11 @@
 </title>
 </head>
 {% block body %}
+<body>
 	<div class="container">
-		<div class="navbar navbar-dark bg-dark">
+		<div class="nav-bar">
 			<div class="container">
-				<div class="navbar-header">HEADER OF NAVBAR
+				<div class="nav-bar-header">HEADER OF NAVBAR
 
 						{% if user.is_authenticated %}
     					<a href="{% url 'pi:logout' %}">logout</a>
