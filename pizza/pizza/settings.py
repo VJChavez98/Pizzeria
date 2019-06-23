@@ -124,6 +124,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_MEDIA_URL = '/static/media/'
 LOGIN_REDIRECT_URL = reverse_lazy('pi:index')
 LOGOUT_REDIRECT_URL = reverse_lazy('pi:index')
