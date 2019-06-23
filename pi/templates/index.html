@@ -1,0 +1,82 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'pi/style.css' %}">
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		{% block title %}Pizzeria{% endblock %}
+	</title>
+	<script src="js/jquery.js"></script>
+	<script type="text/javascript">
+		function openDialog(){
+			$('#overlay').fadeIn('fast',function(){
+				$('#popup').css('display','block');
+				$('#popup').animate({'left':'30%'},500);
+			});
+		}
+		function closeDialog(id){
+			$('#'+id).css('position','absolute');
+			$('#'+id).animate({'left':'-100%'},500,function(){
+				$('#+id').css('position','fixed');
+				$('#+id').css('left','100%');
+				//creo que ese de ahi es un :
+				$('#overlay').fadeOut('fast');
+			});
+		}
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="navbar navbar-dark bg-dark">
+			<div class="container">
+				<div class="navbar-header">HEADER OF NAVBAR *PRUEBAPOPUP
+					<button class="submit">
+						{% if user.is_authenticated %}
+    					<a href="{% url 'pi:logout' %}">logout</a>
+						{% else %}
+  						<a href="{% url 'pi:login' %}">login</a>
+						{% endif %}
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="popup" class="popup">
+		<a onclick="closeDialog('popup');" class="close"></a>
+		<div>
+			{% if user.is_authenticated %}
+			<button class="button", type="button">BOTON
+				<a href="home">HOME</a></button>
+			{% else %}
+			<button class="button", type="button">BOTON
+				<a href="home">NOHOME</a></button>
+			{% endif %}
+		</div>
+	</div>
+
+
+	{% if pizza_list %}
+	<ul>
+		{% for pizza in pizza_list %}
+		<li>
+			<a href="{% url 'pi:home' pizza.pizza_id %}">{{ pizza.nom_pizza }} {{ pizza.pizza_id }}
+			</a>
+		</li>
+		{% endfor %}
+	</ul>
+	{% else %}
+		<p>No pizza disponible we:(</p>
+	{% endif %}
+	
+	{% block content %}
+		<h2>
+			Contenido
+		</h2>
+	{% endblock %}
+
+</body>
+</html>
