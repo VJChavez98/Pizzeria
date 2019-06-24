@@ -15,6 +15,6 @@ urlpatterns=[
     path('index/', views.IndexView.as_view(), name = 'index'),
     path('<int:pk>/',views.HomeView.as_view(), name='home'),
     path('accounts/', include('django.contrib.auth.urls'), name='login'),
-    path('consultar/', views.ConsultarPedido.as_view(), name='detailPedido'),
-
+    path('consultar/', views.ConsultarPedido.as_view(), name='consultar'),
+    path('consultar/<int:id>',views.ConsultarPedido.as_view(), name='detailPedido'),
 ]

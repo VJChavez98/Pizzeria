@@ -1,6 +1,6 @@
 {% load static %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'pi/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
 <!DOCTYPE html>
 <html>
@@ -75,7 +75,7 @@
 	{% block content %}
 		<ul>
 			<li>
-				<a href="{% url 'pi:detailPedido' %}">Consultar pedido</a>			</li>
+				<a href="{% url 'pi:consultar' %}">Consultar pedido</a>			</li>
 		</ul>
 	{% endblock %}
 

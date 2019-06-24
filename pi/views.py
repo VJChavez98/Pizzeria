@@ -1,11 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse	#n
-from django.template import loader	#n
-from django.http import Http404	#n
 from .models import *
-
 from django.views import generic
-from django.urls import reverse
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 # Create your views here.
@@ -32,7 +27,13 @@ class LoginView(generic.DetailView):
 class ConsultarPedido(generic.ListView):
 	model = Pedido
 	template_name = 'pages/ConsultarPedido.html'
+	context_object_name = 'detalle'
 
+
+
+def detallePedido(request, cod_pedido):
+	pedido = get_object_or_404(Pedido, pk=cod_pedido)
+	return render(request, 'pages/Pedido_detalle.html', {'pedido': pedido})
 #nuevo
 def home(request, pizza_id):
 	pizza=get_object_or_404(Pizza, pk=pizza_id)

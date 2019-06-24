@@ -22,7 +22,7 @@ class Pizza(models.Model):
 	pizza_id = models.IntegerField(primary_key=True)
 	nom_pizza = models.CharField(max_length=30)
 	precio = models.FloatField()
-
+	objects = models.Manager()
 
 	def __str__(self):
 		return self.nom_pizza
@@ -78,6 +78,10 @@ class Cliente(models.Model):
 class Pedido(models.Model):
 	cod_pedido=models.IntegerField(primary_key=True)
 	fec_pedido=models.DateTimeField()
+	objects = models.Manager()
+
+	def __str__(self):
+		return self.cod_pedido
 
 class Detalle_Pedido(models.Model):
 	corr_det_ped=models.AutoField(primary_key=True)

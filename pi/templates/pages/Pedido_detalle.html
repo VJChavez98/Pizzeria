@@ -1,30 +1,5 @@
-<html>
-	<head>
-		<title>
-			Pizzeria Web
-		</title>
-	</head>
-
-	<body bgcolor="#2ECCFA">
-		<center>
-			
-			<h1>
-				Pizzeria en Linea	
-				<br>
-				<br>
-				Consultar Pedido
-			</h1>
-			<div>
-
-			<form action="{% url 'pi:detailPedido' %}" method="POST">
-    			{% csrf_token %}
-				<div>
-					<label>Codigo:</label>
-					<input type="number" name="cod_pedido">
-				</div>
-    		<input type="submit" value="Submit">
-			</form>
-			</div>
+{% extends 'pages:ConsultarPedido.html' %}
+{% block content %}
 			<table class="egt" border="1" style="font-size:40px">
 				<tr>
 					<th>Pizza</th>
@@ -33,7 +8,7 @@
 					<th>Total</th>
 				</tr>
 				<tr>
-					{% if detalle == cod_pedido %}
+					{%if detalle %}
 					{% for deta in detalle %}
 					<td>{{ deta.cod_pedido }}</td>
     				<td> {{ deta.fec_pedido }} </td>
@@ -67,8 +42,4 @@
 
 
 		</center>
-
-	</body>
-
-
-</html>
+{% endblock %}
