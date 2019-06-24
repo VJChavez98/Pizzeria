@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+	<head > 
+		<title>Pizzeria Web</title>
+	</head>
+	<body>
+
+		<center>
+
+		<h1>
+		Pizzeria en Linea	
+		</h1>
+
+		<h1>
+			Pizza Personalizada
+			<br>
+			<br>
+			Solo se puede seleccionar de una de las tres bases
+
+		</h1>
+		
+		
+		
+
+		<img src="{% static 'images/' %}pizza4.png" style="width:400; height:300">
+		<br>Base 1: Pizza 4 
+		<br>Precio: $10		
+		<br><label><input type="checkbox" id="cbox1" value="first_checkbox"> </label><br>
+		<br>
+		<br>
+		<br>
+
+
+		<img src="{% static 'images/' %}/pizzap.jpg" style="width:400; height:300">
+		<br>Base 2: Pizza Personal 
+		<br>Precio: $5.00		
+		<br><label><input type="checkbox" id="cbox2" value="first_checkbox"> </label><br>
+		<br>
+		<br>
+		<br>
+
+		<img src="{% static 'images/' %}pizzat.jpg" style="width:400; height:300">
+		<br>Base 3: Pizza Tradicional 
+		<br>Precio: $7.50		
+		<br><label><input type="checkbox" id="cbox3" value="first_checkbox"> </label><br>
+		<br>
+		<br>
+		<br>
+
+
+
+		<h1>
+			Solo se puede escoger 3 ingredientes extra
+		</h1>
+
+
+		<!--********LISTAS********-->
+		<label><input type="checkbox" id="cbox4" value="first_checkbox">Champiñones </label>
+		<br>
+
+		<label><input type="checkbox" id="cbox5" value="first_checkbox">Piña </label>
+		<br>
+
+		<label><input type="checkbox" id="cbox6" value="first_checkbox">Peperoni </label>
+		<br>
+
+		<label><input type="checkbox" id="cbox7" value="first_checkbox">Jamon </label>
+		<br>
+
+		<label><input type="checkbox" id="cbox8" value="first_checkbox">Carne </label>
+		<br>
+		<br>
+		<br>
+
+		<br><button style="font-size:25px">
+			Guardar
+		</button>	
+
+
+	
+
+
+
+		</center>
+
+		
+	</body>
+
